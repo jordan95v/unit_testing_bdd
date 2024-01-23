@@ -25,6 +25,12 @@ class Tenant(User):
         self.paychecks: list[Paycheck] = paychecks
 
     def can_rent(self) -> bool:
+        """Determines whether the tenant is eligible to rent a property.
+
+        Returns:
+            True if the tenant is eligible to rent, False otherwise.
+        """
+
         age: int = datetime.now().year - self.birth_date.year
         if age < self.MINIMUM_REQUIRED_AGE:
             return False
@@ -35,4 +41,9 @@ class Tenant(User):
         return True
 
     def have_required_paycheck_amount(self) -> bool:
+        """Checks if the tenant has the required number of paychecks.
+
+        Returns:
+            True if the tenant has the required number of paychecks, False otherwise.
+        """
         return len(self.paychecks) >= self.NB_PAYCHECK_MONTH

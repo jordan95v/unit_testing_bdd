@@ -19,4 +19,13 @@ class Address:
         return all([self.way, self.postal_code, self.city])
 
     def is_in_city(self, city: str) -> bool:
+        """Check if the address is in the specified city.
+
+        Args:
+            city: The city to check against.
+
+        Returns:
+            True if the address is in the specified city, False otherwise.
+        """
+
         return self.city == city
