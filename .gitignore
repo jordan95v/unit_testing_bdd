@@ -1,0 +1,7 @@
+venv/
+.pycache/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+post*
+*.sqlite3
